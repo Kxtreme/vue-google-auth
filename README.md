@@ -10,7 +10,7 @@ npm install vue-google-auth
 ```
 import GoogleAuth from 'vue-google-auth'
 
-Vue.use(GoogleAuth, { clientID: 'xxxxxxxxxx-xxxxxxxxxxxxxxxxxxxxxxxxxx.apps.googleusercontent.com' })
+Vue.use(GoogleAuth, { client_id: 'xxxxxxxxxx-xxxxxxxxxxxxxxxxxxxxxxxxxx.apps.googleusercontent.com' })
 Vue.googleAuth().load()
 ```
 Ideally you shall place this in your app entry file, e.g. src/main.js
@@ -20,10 +20,10 @@ Ideally you shall place this in your app entry file, e.g. src/main.js
 ```
 import Vue from 'vue'
 
-Vue.googleAuth().signIn(function (authorizationCode) { 
+Vue.googleAuth().signIn(function (authorizationCode) {
 
   // things to do when sign-in succeeds
-  
+
   // You can send the authorizationCode to your backend server for further processing, for example
   this.$http.post('http://your/backend/server', { code: authorizationCode, redirect_uri: 'postmessage' }).then(function (response) {
     if (response.body) {
@@ -32,7 +32,7 @@ Vue.googleAuth().signIn(function (authorizationCode) {
   }, function (error) {
     console.log(error)
   })
-  
+
 }, function (error) {
   // things to do when sign-in fails
 ))
@@ -48,7 +48,7 @@ import Vue from 'vue'
 // Just add in this line
 Vue.googleAuth().directAccess()
 
-Vue.googleAuth().signIn(function (googleUser) { 
+Vue.googleAuth().signIn(function (googleUser) {
   // things to do when sign-in succeeds
 }, function (error) {
   // things to do when sign-in fails
@@ -80,7 +80,7 @@ Handling Google sign-out
 ```
 import Vue from 'vue'
 
-Vue.googleAuth().signOut(function () { 
+Vue.googleAuth().signOut(function () {
   // things to do when sign-out succeeds
 }, function (error) {
   // things to do when sign-out fails

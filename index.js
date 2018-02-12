@@ -12,12 +12,12 @@
   var gapiUrl = 'https://apis.google.com/js/api:client.js'
 
   var gAuth = {
-    install: function (Vue, options) {
+    install: function (Vue, options, scope = 'plus.login') {
       Vue.googleAuth = googleAuth
       Vue.prototype.$googleAuth = googleAuth
 
       if (typeof options === 'object') {
-        config = Object.assign(options, { scope: 'profile email https://www.googleapis.com/auth/plus.login' })
+        config = Object.assign(options, { scope: 'profile email https://www.googleapis.com/auth/' + scope })
       }
     }
   }
